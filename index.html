@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Get Keenan</title>
+    <meta
+      name="description"
+      content="Combine Notre Dame's dorms to reach the almighty Keenan Hall."
+    />
+    <meta name="theme-color" content="#0c2340" />
+
+    <meta property="og:title" content="Get Keenan" />
+    <meta
+      property="og:description"
+      content="Combine Notre Dame's dorms to reach the almighty Keenan Hall."
+    />
+    <meta property="og:type" content="website" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c2340'/%3E%3Ctext x='16' y='23' font-family='Segoe UI,Arial,sans-serif' font-size='19' font-weight='bold' fill='%23c99700' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1 class="title">Get<span>Keenan</span></h1>
+
+        <div class="scores">
+          <div class="score-box">
+            <span class="score-label">Score</span>
+            <span class="score-value" id="score">0</span>
+          </div>
+          <div class="score-box">
+            <span class="score-label">Best</span>
+            <span class="score-value" id="best">0</span>
+          </div>
+        </div>
+      </header>
+
+      <p class="tagline">
+        Combine the other dorms to reach the almighty <strong>Keenan</strong>!
+      </p>
+
+      <div class="toolbar">
+        <button class="button" id="new-game" type="button">New Game</button>
+      </div>
+
+      <!-- The board holds 16 static background cells plus absolutely
+           positioned tiles that slide over the top of them. -->
+      <div class="board" id="board">
+        <div class="cells" id="cells" aria-hidden="true"></div>
+        <div class="tiles" id="tiles"></div>
+
+        <div class="board-overlay" id="game-over" hidden>
+          <div class="board-overlay-inner">
+            <h2>Game over</h2>
+            <p>No Keenan for you.</p>
+            <button class="button button-primary" type="button" data-restart>
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="about">
+        <p>
+          <strong>HOW TO PLAY:</strong> Use your <strong>arrow keys</strong> to
+          move the tiles &mdash; or swipe on a phone. When two tiles with the
+          same dorm touch, they <strong>merge into one!</strong>
+        </p>
+
+        <hr class="rule" />
+
+        <p>
+          Created by <a href="https://www.linkedin.com/in/evaristoribeiro/" target="_blank" rel="noopener noreferrer">Evaristo C A Ribeiro</a>. Inspired by <a href="https://mitchgu.github.io/GetMIT/" target="_blank" rel="noopener noreferrer">Get MIT by Mitchell Gu</a> and <a href="https://naveenarun.github.io/GetCaltech/" target="_blank" rel="noopener noreferrer">Get Caltech by Naveen Arun</a>. Based on
+          <a href="https://play2048.co/" target="_blank" rel="noopener noreferrer">2048 by Gabriele Cirulli</a> and <a href="https://apps.apple.com/us/app/1024/id823499224" target="_blank" rel="noopener noreferrer">1024 by Veewo Studio</a>, and conceptually similar to <a href="https://asherv.com/threes/" target="_blank" rel="noopener noreferrer">Threes by Asher Vollmer</a>.
+        </p>
+
+        <hr class="rule" />
+
+        <p class="colophon">
+          An independent Keenan Hall production. Not affiliated with the
+          University of Notre Dame. Dorm jokes from <a href="https://www.instagram.com/keenanrevue/" target="_blank" rel="noopener noreferrer">@keenanrevue</a>.
+        </p>
+      </footer>
+    </main>
+
+    <!-- Dorm reveal popup. Reused for every hall, including the Keenan win. -->
+    <div class="modal" id="modal" hidden>
+      <div class="modal-backdrop" data-dismiss></div>
+
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-name"
+      >
+        <p class="modal-kicker" id="modal-kicker">New dorm unlocked</p>
+
+        <div class="modal-photo" id="modal-photo">
+          <img id="modal-photo-img" alt="" />
+        </div>
+
+        <h2 class="modal-name" id="modal-name"></h2>
+        <p class="modal-fact" id="modal-fact"></p>
+
+        <button
+          class="button button-primary modal-button"
+          id="modal-button"
+          type="button"
+          data-dismiss
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+
+    <script src="dorms.js"></script>
+    <script src="engine.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

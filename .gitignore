@@ -1,0 +1,14 @@
+# Local editor / tooling config
+.claude/
+.vscode/
+.idea/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies and build output (none today, but keeps accidents out)
+node_modules/
+dist/
+*.log
